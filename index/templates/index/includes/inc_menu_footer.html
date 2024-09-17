@@ -1,0 +1,33 @@
+<div class="down">
+        <footer class="footer center">
+            <a href="{% url 'index:index' %}"><img class="logo_bottom" src="/static/img/logo_bottom.svg" alt="logo"></a>
+           <div class="footer__content">
+            <div class="footer__info">
+                <nav class="footer__item">
+                    <h4 class="footer__heading">Меню</h4>
+                    <a class="footer__link" href="{% url 'index:index' %}">Главная</a>
+                    <a class="footer__link" href="/catalog/">Каталог</a>
+                    <a class="footer__link" href="/">Корзина</a>
+                </nav>
+                <div class="footer__item">
+                    <h4 class="footer__heading">Контакты</h4>
+                    <a class="footer__link" href="tel:+7 908 800 80 80 ">+7 908 800 80 80</a>
+                    <a class="footer__link" href="mailto:help@interier.com">help@interier.com</a>
+                 <div class="footer__icons">
+                    <a href="#"><img class="social_inst" src="/static/img/inst.svg" alt="Инстаграмм"></a>
+                    <a href="#"><img class="social_twitter" src="/static/img/twitter.svg" alt="Твиттер"></a>
+                    <a href="#"><img class="social_facebook" src="/static/img/facebook.svg" alt="Фейсбук"></a>
+                </div>
+
+                </div>
+            </div>
+
+            <form class="footer__form" action="#">
+                <p class="news">Получайте наши новости и обновления</p>
+                <input class="field" type="email" placeholder=" Ваш email" >
+                <button class="button" type="submit">Подписаться</button>
+            </form>
+
+           </div>
+        </footer>
+    </div>

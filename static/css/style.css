@@ -28,7 +28,7 @@ a {
 
 .top_catalog {
     height: 400px;
-    background-image: url(topback_catalog.jpeg);
+    background-image: url("/static/img/topback_catalog.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

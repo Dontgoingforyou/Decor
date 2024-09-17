@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,16 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="top_catalog center">
         <header class="head" id="top">
-            <a class="logo" href="index.html"><img src="logo.svg" alt="logo"></a>
+            <a class="logo" href="{% url 'index:index' %}"><img src="/static/img/logo.svg" alt="logo"></a>
                 <input placeholder="Поиск" class="head__input" type="text">
             <nav class="menu">
-                <a class="menu__link" href="catalog.html">Каталог</a>
-                <a class="menu__link" href="basket.html" >Корзина</a>
+                <a class="menu__link" href="/catalog/">Каталог</a>
+                <a class="menu__link" href="/" >Корзина</a>
             </nav>
         </header>
         <section class="top1">
@@ -34,7 +36,7 @@
         </div>
         <div class="product__class">
             <div class="product">
-                <a href="#"><img class="product__img" src="tatran.jpeg" alt="tatran"></a>
+                <a href="#"><img class="product__img" src="/static/img/tatran.jpeg" alt="tatran"></a>
                 <h3 class="product">Кровать TATRAN</h3>
                 <p class="product__text">Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.</p>
                 <div class="product-box-price">
@@ -42,7 +44,7 @@
                 </div>
             </div>
             <div class="product">
-                <a href="#"><img class="product__img" src="vilora.jpeg" alt="vilora"></a>
+                <a href="#"><img class="product__img" src="/static/img/vilora.jpeg" alt="vilora"></a>
                 <h3 class="product">Кресло VILORA</h3>
                 <p class="product__text">Мягкое и уютное, аккуратное и стильное. Упругие подушки сиденья и приятная на ощупь ткань. </p>
                 <div class="product-box-price">
@@ -50,7 +52,7 @@
                 </div>
             </div>
             <div class="product">
-                <a href="#"><img class="product__img" src="menu.jpeg" alt="menu"></a>
+                <a href="#"><img class="product__img" src="/static/img/menu.jpeg" alt="menu"></a>
                 <h3 class="product">Стол MENU</h3>
                 <p class="product__text">Для того чтобы трапезничать было приятно, необходим правильный обеденный стол.</p>
                 <div class="product-box-price">
@@ -58,7 +60,7 @@
                 </div>
             </div>
             <div class="product">
-                <a href="#"><img class="product__img" src="askesta.jpeg" alt="askesta"></a>
+                <a href="#"><img class="product__img" src="/static/img/askesta.jpeg" alt="askesta"></a>
                 <h3 class="product">Кресло ASKESTA</h3>
                 <p class="product__text">Высокоэластичный пенополиуретан в «начинке» кресла надежен и долговечен.</p>
                 <div class="product-box-price">
@@ -66,7 +68,7 @@
                 </div>
             </div>
             <div class="product">
-                <a href="#"><img class="product__img" src="norman.jpeg" alt="norman"></a>
+                <a href="#"><img class="product__img" src="/static/img/norman.jpeg" alt="norman"></a>
                 <h3 class="product">Стол NORMAN</h3>
                 <p class="product__text">Прекрасно переносит солнечные лучи, перепады влажности и любые осадки.</p>
                 <div class="product-box-price">
@@ -74,7 +76,7 @@
                 </div>
             </div>
             <div class="product">
-                <a href="#"><img class="product__img" src="nastan.jpeg" alt="nastan"></a>
+                <a href="#"><img class="product__img" src="/static/img/nastan.jpeg" alt="nastan"></a>
                 <h3 class="product">Диван NASTAN</h3>
                 <p class="product__text">Модель отличается простотой линий и форм, отсутствием броского декора.</p>
                 <div class="product-box-price">
@@ -82,48 +84,18 @@
                 </div>
             </div>
             <div class="gotocatalog1">
-                <a href="catalog.html">Перейти в Каталог</a>
+                <a href="{% url 'index:index' %}">Назад на главную</a>
             </div>
             
         </div>
     </div>
     
+<footer>
+    {% include 'index/includes/inc_menu_footer.html' %}
+</footer>
 
-    <div class="down">
-        <footer class="footer center">
-            <a href="index.html"><img class="logo_bottom" src="logo_bottom.svg" alt="logo"></a>
-           <div class="footer__content">
-            <div class="footer__info">
-                <nav class="footer__item">
-                    <h4 class="footer__heading">Меню</h4>
-                    <a class="footer__link" href="index.html">Главная</a>
-                    <a class="footer__link" href="catalog.html">Каталог</a>
-                    <a class="footer__link" href="basket.html">Корзина</a>
-                </nav>
-                <div class="footer__item">
-                    <h4 class="footer__heading">Контакты</h4>
-                    <a class="footer__link" href="tel:+7 908 800 80 80 ">+7 908 800 80 80</a>
-                    <a class="footer__link" href="mailto:help@interier.com">help@interier.com</a>
-                 <div class="footer__icons">
-                    <a href="#"><img class="social_inst" src="inst.svg" alt="Инстаграмм"></a>
-                    <a href="#"><img class="social_twitter" src="twitter.svg" alt="Твиттер"></a>
-                    <a href="#"><img class="social_facebook" src="facebook.svg" alt="Фейсбук"></a>
-                </div>
-                 
-                </div>
-            </div>
-    
-            <form class="footer__form" action="#">
-                <p class="news">Получайте наши новости и обновления</p>
-                <input class="field" type="email" placeholder=" Ваш email" >
-                <button class="button" type="submit">Подписаться</button>
-            </form>
-               
-           </div>
-        </footer>
-    </div>
 </body>
-</html>  
+</html>
 
 
 
