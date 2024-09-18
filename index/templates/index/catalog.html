@@ -1,5 +1,5 @@
-
 {% load static %}
+{% load media_tags %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,91 +12,50 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <div class="top_catalog center">
-        <header class="head" id="top">
-            <a class="logo" href="{% url 'index:index' %}"><img src="/static/img/logo.svg" alt="logo"></a>
-                <input placeholder="Поиск" class="head__input" type="text">
-            <nav class="menu">
-                <a class="menu__link" href="/catalog/">Каталог</a>
-                <a class="menu__link" href="/" >Корзина</a>
-            </nav>
-        </header>
-        <section class="top1">
-            <h1 class="menu2">Каталог</h1>
-        </section>
-    </div>
+<div class="top_catalog center">
+    <header class="head" id="top">
+        <a class="logo" href="{% url 'index:index' %}"><img src="/static/img/logo.svg" alt="logo"></a>
+        <input placeholder="Поиск" class="head__input" type="text">
+        <nav class="menu">
+            <a class="menu__link" href="/catalog/">Каталог</a>
+            <a class="menu__link" href="/">Корзина</a>
+        </nav>
+    </header>
+    <section class="top1">
+        <h1 class="menu2">Каталог</h1>
+    </section>
+</div>
+
 
     <div class="product-box center">
-        
-        <div class="top_board">
-            <h2 class="special__link"> Главная / Каталог товаров</h2>
-            <select class="select" name="" id="">
-                <option value="Порядок: сперва новые">Порядок: сперва новые</option>
-            </select>
-        </div>
+        <h2 class="special">Каталог товаров</h2>
         <div class="product__class">
+            {% for product in products %}
             <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/tatran.jpeg" alt="tatran"></a>
-                <h3 class="product">Кровать TATRAN</h3>
-                <p class="product__text">Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.</p>
+                <a href="#"><img class="product__img" src="{{ product.image | media_filter }}" alt="{{ product.name }}"></a>
+                <h3 class="product">{{ product.name }}</h3>
+                <p class="product__text">{{ product.description }}</p>
+                <p class="product__text">{{ product.category }}</p>
                 <div class="product-box-price">
-                    <p class="price1">120 000 руб.</p>
+                    <p class="price1">{{ product.price }} руб.</p>
                 </div>
             </div>
-            <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/vilora.jpeg" alt="vilora"></a>
-                <h3 class="product">Кресло VILORA</h3>
-                <p class="product__text">Мягкое и уютное, аккуратное и стильное. Упругие подушки сиденья и приятная на ощупь ткань. </p>
-                <div class="product-box-price">
-                    <p class="price1">21 000 руб.</p>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/menu.jpeg" alt="menu"></a>
-                <h3 class="product">Стол MENU</h3>
-                <p class="product__text">Для того чтобы трапезничать было приятно, необходим правильный обеденный стол.</p>
-                <div class="product-box-price">
-                    <p class="price1">34 000 руб.</p>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/askesta.jpeg" alt="askesta"></a>
-                <h3 class="product">Кресло ASKESTA</h3>
-                <p class="product__text">Высокоэластичный пенополиуретан в «начинке» кресла надежен и долговечен.</p>
-                <div class="product-box-price">
-                    <p class="price1">68 000 руб.</p>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/norman.jpeg" alt="norman"></a>
-                <h3 class="product">Стол NORMAN</h3>
-                <p class="product__text">Прекрасно переносит солнечные лучи, перепады влажности и любые осадки.</p>
-                <div class="product-box-price">
-                    <p class="price1">40 000 руб.</p>
-                </div>
-            </div>
-            <div class="product">
-                <a href="#"><img class="product__img" src="/static/img/nastan.jpeg" alt="nastan"></a>
-                <h3 class="product">Диван NASTAN</h3>
-                <p class="product__text">Модель отличается простотой линий и форм, отсутствием броского декора.</p>
-                <div class="product-box-price">
-                    <p class="price1">80 000 руб.</p>
-                </div>
-            </div>
+            {% empty %}
+            <p>Нет товаров в каталоге</p>
+            {% endfor %}
+
             <div class="gotocatalog1">
-                <a href="{% url 'index:index' %}">Назад на главную</a>
+                <a href="/catalog/">Перейти в Каталог</a>
             </div>
-            
         </div>
     </div>
-    
+
+
+
+
 <footer>
     {% include 'index/includes/inc_menu_footer.html' %}
 </footer>
 
 </body>
 </html>
-
-
-
-
