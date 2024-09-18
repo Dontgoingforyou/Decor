@@ -34,6 +34,46 @@ a {
     background-size: cover;
 }
 
+.top_catalog__leisure {
+    height: 400px;
+    background-image: url("/static/img/topback_leisure_furniture.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.top_catalog__for_work {
+    height: 400px;
+    background-image: url("/static/img/topback_furniture_for_work.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.top_catalog__kitchen {
+    height: 400px;
+    background-image: url("/static/img/topback_furniture_kitchen.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.top_catalog__child_room {
+    height: 400px;
+    background-image: url("/static/img/topback_furniture_child_room.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.top_catalog__bathroom {
+    height: 400px;
+    background-image: url("/static/img/topback_furniture_bathroom.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 
 .head {
     height: 76px;

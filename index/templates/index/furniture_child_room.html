@@ -1,0 +1,60 @@
+{% load static %}
+{% load media_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="top_catalog__child_room center">
+    <header class="head" id="top">
+        <a class="logo" href="{% url 'index:index' %}"><img src="/static/img/logo.svg" alt="logo"></a>
+        <input placeholder="Поиск" class="head__input" type="text">
+        <nav class="menu">
+            <a class="menu__link" href="/catalog/">Каталог</a>
+            <a class="menu__link" href="/">Корзина</a>
+        </nav>
+    </header>
+    <section class="top1">
+        <h1 class="menu2">Мебель для детской</h1>
+    </section>
+</div>
+
+<div class="product-box center">
+        <h2 class="special">Каталог товаров</h2>
+        <div class="product__class">
+            {% for product in products %}
+            <div class="product">
+                <a href="#"><img class="product__img" src="{{ product.image | media_filter }}" alt="{{ product.name }}"></a>
+                <h3 class="product">{{ product.name }}</h3>
+                <p class="product__text">{{ product.description }}</p>
+                <p class="product__text">{{ product.category }}</p>
+                <div class="product-box-price">
+                    <p class="price1">{{ product.price }} руб.</p>
+                </div>
+            </div>
+            {% empty %}
+            <p>Нет товаров в каталоге</p>
+            {% endfor %}
+
+            <div class="gotocatalog1">
+                <a href="{% url 'index:index' %}">Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<footer>
+    {% include 'index/includes/inc_menu_footer.html' %}
+</footer>
+
+</body>
+</html>

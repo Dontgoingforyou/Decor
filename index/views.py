@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .models import SpecialOffers, Product
 
 
@@ -17,3 +16,32 @@ def catalog_view(request):
     return render(request, 'index/catalog.html', {'products': products})
 
 
+def furniture_leisure_view(request):
+    furniture_leisure = Product.objects.filter(category__name="Мебель для отдыха").exclude(specialoffers__isnull=False)
+    return render(request, 'index/furniture_leisure.html', {'products': furniture_leisure})
+
+
+def furniture_for_work_view(request):
+    furniture_for_work = Product.objects.filter(category__name="Мебель для работы").exclude(specialoffers__isnull=False)
+    return render(request, 'index/furniture_for_work.html', {'products': furniture_for_work})
+
+
+def furniture_kitchen_view(request):
+    furniture_kitchen = Product.objects.filter(category__name="Мебель для кухни").exclude(specialoffers__isnull=False)
+    return render(request, 'index/furniture_kitchen.html', {'products': furniture_kitchen})
+
+
+def furniture_child_room_view(request):
+    furniture_child_room = (
+        Product.objects.filter(category__name="Мебель для детской").exclude(specialoffers__isnull=False)
+    )
+    return render(
+        request,
+        'index/furniture_child_room.html',
+        {'products': furniture_child_room}
+    )
+
+
+def furniture_bathroom_view(request):
+    furniture_bathroom = Product.objects.filter(category__name="Мебель для ванной").exclude(specialoffers__isnull=False)
+    return render(request, 'index/furniture_bathroom.html', {'products': furniture_bathroom})
