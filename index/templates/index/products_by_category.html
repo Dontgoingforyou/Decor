@@ -1,0 +1,32 @@
+{% extends 'index/index.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% load media_tags %}
+{% block header %}
+    {% include 'index/includes/inc_menu_header.html' with header_class=header_class %}
+{% endblock %}
+
+{% block content %}
+    <div class="product-box center">
+        <h2 class="special">Каталог товаров</h2>
+        <div class="product__class">
+            {% for product in products %}
+                <div class="product">
+                    <a href="#"><img class="product__img" src="{{ product.image | media_filter }}" alt="{{ product.name }}"></a>
+                    <h3 class="product">{{ product.name }}</h3>
+                    <p class="product__text">{{ product.description }}</p>
+                    <p class="product__text">{{ product.category }}</p>
+                    <div class="product-box-price">
+                        <p class="price1">{{ product.price }} руб.</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Нет товаров в каталоге</p>
+            {% endfor %}
+        </div>
+
+        <div class="gotocatalog1">
+            <a href="{% url 'index:index' %}">Вернуться на главную</a>
+        </div>
+    </div>
+{% endblock %}
